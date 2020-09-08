@@ -8,5 +8,7 @@ class Covid_test<ActiveRecord::Base
         self.test_type = test_type 
     end 
 
-    def 
+    
+
+    
 end 

@@ -1,8 +1,7 @@
 class CreateSpecialists < ActiveRecord::Migration[6.0]
   def change
-    create_table :patients do |t|
-      t.string :specilist
-      t.string :appointment 
+    create_table :specialists do |t|
+      t.string :specialist 
     end 
   end
 end

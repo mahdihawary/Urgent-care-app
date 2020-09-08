@@ -10,6 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_09_08_154309) do
+
+  create_table "covid_tests", force: :cascade do |t|
+    t.string "test_location"
+    t.string "test_appointment"
+    t.string "result"
+    t.integer "patient_id"
+    t.string "test_type"
+  end
+
+  create_table "diagnoses", force: :cascade do |t|
+    t.string "diagnosis"
+    t.integer "user_id"
+    t.integer "specialist_id"
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+  end
+
+  create_table "patients_symptoms", force: :cascade do |t|
+    t.string "symptom"
+    t.integer "patient_id"
+    t.integer "symptom_id"
+  end
+
+  create_table "specialists", force: :cascade do |t|
+    t.string "specialist"
+  end
+
+  create_table "symptoms", force: :cascade do |t|
+    t.string "symptom"
+    t.string "name"
+    t.string "date"
+  end
 
 end
