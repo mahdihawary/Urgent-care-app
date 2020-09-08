@@ -1,9 +1,7 @@
 class Symptom< ActiveRecord::Base
-    has_many :patients, through: :patients_symptom 
+    has_many :patients, through: :patient_symptoms 
 
-    def patient_symptom
-        Patients_symptom.all.select{|ps| ps.Symptom == self}
-    end
-  
-
+    # def patient_symptom
+    #     Patient_symptom.all.select{|ps| ps.Symptom == self}
+    # end
 end 

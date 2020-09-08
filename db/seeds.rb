@@ -7,7 +7,7 @@ thor = Patient.create(name: "thor", password: "asgard")
 black_panther = Patient.create(name: "tchalla", password: "wakanda")
 black_widow = Patient.create(name:"natasha", password: "hydra")
 
-
+headache = Symptom.create(symptom: "headache", name: "black_widow", date: "9/7/20")
 # Referral_symptoms = [{"headache": "Neurologist"}, {"migraine": "Neurologist"},{"chest pain": "Cardiologist"}, 
 #     {"difficulty breathing": "Pulmonologist"}, {"fall": "Orthopedic"}, {"injury": "Orthopedic"},
 #      {"sprain": "Orthopedic"}, {"rash": "Dermatologist"}, 
@@ -21,3 +21,5 @@ black_widow = Patient.create(name:"natasha", password: "hydra")
     gastroenterologist = Specialist.create(specialist: "gastroenterologist")
     opthamologist = Specialist.create(specialist: "opthamologist")
     faucci = Specialist.create(specialist: "faucci")
+
+    Patient_symptom.create(patient: black_widow, symptom: headache )

@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(version: 2020_09_08_154309) do
     t.integer "specialist_id"
   end
 
-  create_table "patients", force: :cascade do |t|
-    t.string "name"
-    t.string "password"
-  end
-
-  create_table "patients_symptoms", force: :cascade do |t|
+  create_table "patient_symptoms", force: :cascade do |t|
     t.string "symptom"
     t.integer "patient_id"
     t.integer "symptom_id"
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
   end
 
   create_table "specialists", force: :cascade do |t|
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_154309) do
   create_table "symptoms", force: :cascade do |t|
     t.string "symptom"
     t.string "name"
-    t.string "date"
+    t.date "date"
   end
 
 end
