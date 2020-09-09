@@ -27,3 +27,5 @@ black_widow = Patient.create(name:"natasha", password: "hydra")
     headache = Symptom.create(symptom: "headache", date: "9/9/2020")
 
     
+
+    

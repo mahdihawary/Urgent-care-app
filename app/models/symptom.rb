@@ -1,6 +1,6 @@
 class Symptom < ActiveRecord::Base
-    has_many :patient_symptoms
-    has_many :patients, through: :patient_symptoms 
+    has_many :feelings
+    has_many :patients, through: :feelings 
     
 
     # def patient_symptom

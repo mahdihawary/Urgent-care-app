@@ -1,8 +1,8 @@
 class Patient < ActiveRecord::Base
-    has_many :patient_symptoms
     has_many :diagnoses
     has_many :specialists, through: :diagnoses 
-    has_many :symptoms, through: :patient_symptoms
+    has_many :feelings
+    has_many :symptoms, through: :feelings
     
 
     # def date_of_symptom

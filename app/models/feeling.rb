@@ -1,4 +1,4 @@
-class Patient_symptom < ActiveRecord::Base
+class Feeling < ActiveRecord::Base
     belongs_to :patient
     belongs_to :symptom 
 end 

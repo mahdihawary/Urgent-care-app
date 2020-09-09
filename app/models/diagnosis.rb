@@ -4,7 +4,7 @@ class Diagnosis < ActiveRecord::Base
     #takes in an argument of symptoms
     #compares symptoms to use cases 
     #returns specialist patient can be sent to 
-   
+    
     
     # Referral_symptoms = [{"headache": "Neurologist"}, {"migraine": "Neurologist"},{"chest pain": "Cardiologist"}, 
     # {"difficulty breathing": "Pulmonologist"}, {"fall": "Orthopedic"}, {"injury": "Orthopedic"},
