@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2020_09_08_154309) do
   end
 
   create_table "patient_symptoms", force: :cascade do |t|
-    t.string "symptom"
     t.integer "patient_id"
     t.integer "symptom_id"
   end
@@ -43,7 +42,6 @@ ActiveRecord::Schema.define(version: 2020_09_08_154309) do
 
   create_table "symptoms", force: :cascade do |t|
     t.string "symptom"
-    t.string "name"
     t.date "date"
   end
 

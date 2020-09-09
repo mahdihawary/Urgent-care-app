@@ -1,9 +1,8 @@
-class Specialist< ActiveRecord::Base
-    has_many :patients, through: :diagnosis 
-
-    def my_symptoms
-        self.all.select{|s| Symptom.specialist == s}
-    end
+class Specialist < ActiveRecord::Base
+    has_many :diagnoses
+    has_many :patients, through: :diagnoses 
+    
+    
 
 
 end 

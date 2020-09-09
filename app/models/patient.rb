@@ -1,9 +1,13 @@
 class Patient < ActiveRecord::Base
+    has_many :patient_symptoms
+    has_many :diagnoses
     has_many :specialists, through: :diagnoses 
     has_many :symptoms, through: :patient_symptoms
-    def date_of_symptom
-        Time.now.strftime("%d/%m/%Y")
-    end
+    
+
+    # def date_of_symptom
+    #     Time.now.strftime("%d/%m/%Y")
+    # end
 
     # #if we need a method for username password
     # def create_patient_symptom 
