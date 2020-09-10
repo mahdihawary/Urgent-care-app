@@ -33,9 +33,9 @@ class Specialist < ActiveRecord::Base
             dg
         elsif   sym.symptom == "Abdominal_pain" 
             self.specialist = "gastroenterologist"
-            binding.pry
+            
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
-            binding.pry
+            
             self.diagnoses<<dg
             dg
         elsif sym.symptom == "Eye_pain" 
@@ -53,15 +53,12 @@ class Specialist < ActiveRecord::Base
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
             self.diagnoses<<dg
             dg
+           
         end
         dg 
 
 
     end
 
-    #Migraine Head_injury Chest_pain Difficulty_breathing Fracture Sprain Rash Abdominal_pain Eye_pain
-#[{"headache": "Neurologist"}, {"migraine": "Neurologist"},{"chest pain": "Cardiologist"}, 
-#     {"difficulty breathing": "Pulmonologist"}, {"fall": "Orthopedic"}, {"injury": "Orthopedic"},
-#      {"sprain": "Orthopedic"}, {"rash": "Dermatologist"}, 
-#     {"stomach pain": "Gastroenterologist"}, {"eye pain": "Opthamologist"}]
+   
 end 

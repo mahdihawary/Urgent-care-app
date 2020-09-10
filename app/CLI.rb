@@ -36,13 +36,15 @@ class CommandLineInterface
         chosen = prompt.select("Choose your Symptoms", %w(Migraine Head_injury Chest_pain Difficulty_breathing Fracture Sprain Rash Abdominal_pain Eye_pain))
         chosen_symptom = Symptom.create(symptom:chosen)
         Feeling.new(patient: current_patient, symptom: chosen_symptom)
+        
         current_patient.symptoms<< chosen_symptom
+        
     end 
 
     def which_test(current_patient)
         test = Covid_test.create(patient: current_patient)
         # current_patient.covid_test = test
-        #
+        
         if current_patient.my_symptoms.include?("Migraine" || "Head_injury" || "Chest_pain" || "Difficulty_breathing" || "Abdominal_pain" )
             current_patient.covid_test.test_type = "Nasal swab"
             puts "Due to your symptoms you will be getting tested for COVID-19 via nasal swab"
@@ -54,8 +56,13 @@ class CommandLineInterface
     end 
 
     def my_referral(patient, symptom, date)
+       
         spec = Specialist.create
-        dg = spec.referral(symptom,date)
+        dg = spec.referral(symptom, Date.today+rand(1000))
+        dg.patient = patient
+        patient.diagnoses<<dg
+        
+        
     end 
 
     def pick_date
@@ -64,8 +71,9 @@ class CommandLineInterface
     end
 
     def display_referral(patient)
-        puts "Your appointment is with a " + patient.diagnosis.spec_name +
-        "and your appointment is "+ patient.diagnoses.last.ref_date
+       
+        puts "Your appointment is with a " + patient.diagnoses.last.spec_name +
+        " and your appointment is "+ patient.diagnoses.last.ref_date.to_s
     end
-
+    
 end     

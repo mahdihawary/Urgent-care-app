@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 2020_09_09_173557) do
 
   create_table "diagnoses", force: :cascade do |t|
     t.string "spec_name"
-    t.string "diagnosis"
     t.integer "patient_id"
     t.integer "specialist_id"
+    t.date "ref_date"
   end
 
   create_table "feelings", force: :cascade do |t|
