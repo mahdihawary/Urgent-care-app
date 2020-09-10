@@ -98,6 +98,16 @@ class CommandLineInterface
         end 
     end
 
+    def done?(current_patient)
+        prompt = TTY::Prompt.new
+        choice = prompt.yes?("Would you like to do anything else?")
+            if choice   
+                self.menu2(current_patient)
+            elsif 
+                puts "Thank you for using the Urgent Care App, have a nice day!"
+            end
+    end
+
     def menu2(current_patient)
         prompt = TTY::Prompt.new
         selections2 = prompt.select("Please Select One of the Below Options", 
@@ -106,15 +116,21 @@ class CommandLineInterface
             self.choose_symptoms(current_patient)
             date = self.pick_date
             self.my_referral(current_patient,current_patient.symptoms.last, date)
+            self.done?(current_patient)
         elsif selections2 == "Display previous symptoms"
             display_symptoms(current_patient)
+            self.done?(current_patient)
         elsif selections2 == "Find locations"
             self.find_locations
+            self.done?(current_patient)
         elsif selections2 == "See my test"
             self.which_test(current_patient)
+            self.done?(current_patient)
         elsif selections2 == "See my referral"
             cli.display_referral(current_patient)
+            self.done?(current_patient)
         elsif selections2 == "Exit"        
         end
+
     end
 end     

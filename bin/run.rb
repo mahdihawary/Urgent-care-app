@@ -17,12 +17,6 @@ class Run
 
         end
         cli.menu2(current_patient)
-        choice = prompt.yes?("Would you like to do anything else?")
-            if choice == "yes" ||"Yes"
-                cli.menu2(current_patient)
-            else
-                puts "Thank you for using the Urgent Care App, have a nice day!"
-            end
     end
     
     
