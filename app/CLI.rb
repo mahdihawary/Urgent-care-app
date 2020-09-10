@@ -83,17 +83,33 @@ class CommandLineInterface
         
     end
 
+     
+    def find_locations
+        response = RestClient.get 'https://covid-19-testing.github.io/locations/new-york/complete.json'
+        loc = JSON.parse(response.body)
+        
+        # Loop through and print data
+        for i in 0..9 
+            puts "Name: " + loc[i]["name"]
+            addy = loc[i]["physical_address"][0]
+            puts "Address: " + addy["address_1"] + ", " + addy["city"] + ", " + addy["state_province"] + ", " + addy["postal_code"]
+            puts "Phone Number: " + loc[i]["phones"][0]["number"] 
+            puts
+        end 
+    end
+
     def menu2(current_patient)
         prompt = TTY::Prompt.new
         selections2 = prompt.select("Please Select One of the Below Options", 
-        %w(Choose\ Symptom See\ my\ test See\ my\ referral Display\ previous\ symptoms Exit))
+        %w(Choose\ Symptom See\ my\ test See\ my\ referral Display\ previous\ symptoms Find\ locations Exit))
         if selections2 == "Choose Symptom"
             self.choose_symptoms(current_patient)
             date = self.pick_date
             self.my_referral(current_patient,current_patient.symptoms.last, date)
         elsif selections2 == "Display previous symptoms"
             display_symptoms(current_patient)
-            
+        elsif selections2 == "Find locations"
+            self.find_locations
         elsif selections2 == "See my test"
             self.which_test(current_patient)
         elsif selections2 == "See my referral"
