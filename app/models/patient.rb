@@ -3,8 +3,9 @@ class Patient < ActiveRecord::Base
     has_many :specialists, through: :diagnoses 
     has_many :feelings
     has_many :symptoms, through: :feelings
+    has_one :covid_test
     
-
+    
     # def date_of_symptom
     #     Time.now.strftime("%d/%m/%Y")
     # end
@@ -15,12 +16,12 @@ class Patient < ActiveRecord::Base
     # end 
 
     # def patient_symptom
-    #     Patient_symptom.all.select{|ps| ps.id == self.id}
+    #   Symptom.all.select{|ps| ps.id == self.id}
     # end
 
-    # def my_symptoms
-    #     self.patient_symptom.all.map{|ps| ps.Symptom}
-    # end
+    def my_symptoms
+        self.symptoms.all.map{|ps| ps.symptom}
+    end
 
     # def my_diagnosis
     #     Diagnosis.all.select{|c| c.patient == self}

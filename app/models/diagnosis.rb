@@ -24,10 +24,4 @@ class Diagnosis < ActiveRecord::Base
 
 
 
-    # def find_my_specialist
-    #     # if Referral_symptoms.find{|r| self.patients.my_symptoms.last == r}
-    #     # Referral_symptoms
-
-    #     Referral_symptoms.select{ |s| self.patients.my_symptoms.last == s }
-    # end
 end 
