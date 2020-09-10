@@ -21,7 +21,7 @@ class Run
     def menu2(cli, current_patient)
         prompt = TTY::Prompt.new
         selections2 = prompt.select("Please Select One of the Below Options", 
-        %w(Choose_symptom See_my_test See_my_referral Exit))
+        %w(Choose_symptom See_my_test See_my_referral See_testing_locations Exit))
         if selections2 == "Choose_symptom"
             
             cli.choose_symptoms(current_patient)
@@ -36,6 +36,9 @@ class Run
             
         elsif selections2 == "See_my_referral"
             cli.display_referral(current_patient)
+            self.menu2(cli, current_patient)
+        elsif selections2 == "See_testing_locations"
+            cli.find_locations
             self.menu2(cli, current_patient)
         elsif selections2 == "Exit"
         end

@@ -71,9 +71,22 @@ class CommandLineInterface
     end
 
     def display_referral(patient)
-       
         puts "Your appointment is with a " + patient.diagnoses.last.spec_name +
         " and your appointment is "+ patient.diagnoses.last.ref_date.to_s
     end
     
+    def find_locations
+        response = RestClient.get 'https://covid-19-testing.github.io/locations/new-york/complete.json'
+        loc = JSON.parse(response.body)
+        
+        # Loop through and print data
+        for i in 0..9 
+            puts "Name: " + loc[i]["name"]
+            addy = loc[i]["physical_address"][0]
+            puts "Address: " + addy["address_1"] + ", " + addy["city"] + ", " + addy["state_province"] + ", " + addy["postal_code"]
+            puts "Phone Number: " + loc[i]["phones"][0]["number"] 
+            puts
+        end 
+
+    end 
 end     

@@ -21,6 +21,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    json (2.3.1)
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
@@ -79,6 +80,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  json
   pry
   rake
   require_all
