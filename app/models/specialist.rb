@@ -11,12 +11,12 @@ class Specialist < ActiveRecord::Base
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
             self.diagnoses<<dg
             dg
-        elsif sym.symptom == "Chest_pain" 
+        elsif sym.symptom == "Chest pain" 
             self.specialist = "Cardiologist"
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
             self.diagnoses<<dg
             dg
-        elsif sym.symptom == "Difficulty_breathing" 
+        elsif sym.symptom == "Difficulty breathing" 
             self.specialist = "Pulmonologist"
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
             self.diagnoses<<dg
@@ -31,19 +31,19 @@ class Specialist < ActiveRecord::Base
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
             self.diagnoses<<dg
             dg
-        elsif   sym.symptom == "Abdominal_pain" 
+        elsif   sym.symptom == "Abdominal pain" 
             self.specialist = "gastroenterologist"
             
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
             
             self.diagnoses<<dg
             dg
-        elsif sym.symptom == "Eye_pain" 
+        elsif sym.symptom == "Eye pain" 
             self.specialist = "Opthamologist"
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
             self.diagnoses<<dg
             dg
-        elsif sym.symptom == "Head_injury" 
+        elsif sym.symptom == "Head injury" 
             self.specialist = "Neurology"
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
             self.diagnoses<<dg
@@ -53,12 +53,8 @@ class Specialist < ActiveRecord::Base
             dg = Diagnosis.create(spec_name: self.specialist, ref_date: date, specialist_id: self.id)
             self.diagnoses<<dg
             dg
-           
         end
         dg 
-
-
     end
-
    
 end 

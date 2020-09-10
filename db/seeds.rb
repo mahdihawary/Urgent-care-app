@@ -30,7 +30,10 @@ require 'pry'
 
     # headache = Symptom.create(symptom: "headache", date: "9/9/2020")
     
-    test_locations = RestClient.get("https://covid-19-testing.github.io/locations/:state/complete.json")
+    test_locations = RestClient.get("https://covid-19-testing.github.io/locations/new-york/complete.json")
+    test_locations = JSON.parse(test_locations)
+    test_locations.each do |l|
+        
     binding.pry
 
     

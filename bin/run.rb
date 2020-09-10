@@ -16,30 +16,15 @@ class Run
             current_patient = cli.sign_up
 
         end
-        self.menu2(cli, current_patient)
+        cli.menu2(current_patient)
+        choice = prompt.yes?("Would you like to do anything else?")
+            if choice == "yes" ||"Yes"
+                cli.menu2(current_patient)
+            else
+                puts "Thank you for using the Urgent Care App, have a nice day!"
+            end
     end
-    def menu2(cli, current_patient)
-        prompt = TTY::Prompt.new
-        selections2 = prompt.select("Please Select One of the Below Options", 
-        %w(Choose_symptom See_my_test See_my_referral Exit))
-        if selections2 == "Choose_symptom"
-            
-            cli.choose_symptoms(current_patient)
-            
-            date = cli.pick_date
-            cli.my_referral(current_patient,current_patient.symptoms.last, date)
-            self.menu2(cli, current_patient)
-        elsif selections2 == "See_my_test"
-            cli.which_test(current_patient)
-           
-            self.menu2(cli, current_patient)
-            
-        elsif selections2 == "See_my_referral"
-            cli.display_referral(current_patient)
-            self.menu2(cli, current_patient)
-        elsif selections2 == "Exit"
-        end
-    end
+    
     
 end
 
