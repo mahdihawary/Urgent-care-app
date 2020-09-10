@@ -1,3 +1,4 @@
+require 'rest-client'
 Patient.destroy_all
 Specialist.destroy_all
 Symptom.destroy_all
