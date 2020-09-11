@@ -127,7 +127,7 @@ class CommandLineInterface
             self.which_test(current_patient)
             self.done?(current_patient)
         elsif selections2 == "See my referral"
-            cli.display_referral(current_patient)
+            self.display_referral(current_patient)
             self.done?(current_patient)
         elsif selections2 == "Exit"        
         end
