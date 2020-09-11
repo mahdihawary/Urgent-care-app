@@ -17,13 +17,14 @@ class CommandLineInterface
         username = prompt.ask("Please enter your username")
         password = prompt.mask("Please enter your password") 
         current_patient = Patient.all.find{ |p| p.name == username }
-        if password != current_patient.password
-            puts "You hav input the incorrect password, please try again."
-            self.login
-        end
+        
         if current_patient == nil 
             puts "It looks like that username does not exist please create a new account"
             self.sign_up
+        end
+        if password != current_patient.password
+            puts "You hav input the incorrect password, please try again."
+            self.login
         end
 
         current_patient
